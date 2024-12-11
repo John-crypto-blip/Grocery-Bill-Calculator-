@@ -1,0 +1,62 @@
+/* John Renzel M. Fangon 
+/* CC2 1B
+
+import java.util.Scanner;
+
+public class GroceryBillCalculator {
+
+    public static void main(String[] args) {
+
+        // Create a scanner object to take input
+        Scanner scanner = new Scanner(System.in);
+
+        // Declare variables for prices and quantities
+        double price1, price2, price3;
+        int quantity1, quantity2, quantity3;
+
+        // Input prices and quantities for the three items
+        System.out.print("Enter the price of item 1: ");
+        price1 = scanner.nextDouble();
+        System.out.print("Enter the quantity of item 1: ");
+        quantity1 = scanner.nextInt();
+
+        System.out.print("Enter the price of item 2: ");
+        price2 = scanner.nextDouble();
+        System.out.print("Enter the quantity of item 2: ");
+        quantity2 = scanner.nextInt();
+
+        System.out.print("Enter the price of item 3: ");
+        price3 = scanner.nextDouble();
+        System.out.print("Enter the quantity of item 3: ");
+        quantity3 = scanner.nextInt();
+
+        // Calculate the total cost for each item
+        double totalItem1 = price1 * quantity1;
+        double totalItem2 = price2 * quantity2;
+        double totalItem3 = price3 * quantity3;
+
+        // Calculate the subtotal
+        double subtotal = totalItem1 + totalItem2 + totalItem3;
+
+        // Apply a 5% discount
+        double discount = subtotal * 0.05;
+
+        // Calculate the discounted amount
+        double discountedAmount = subtotal - discount;
+
+        // Apply a 12% sales tax
+        double salesTax = discountedAmount * 0.12;
+
+        // Calculate the final total
+        double finalTotal = discountedAmount + salesTax;
+
+        // Display the results
+        System.out.println("\nSubtotal       : PHP " + String.format("%.2f", subtotal));
+        System.out.println("Discount       : PHP " + String.format("%.2f", discount));
+        System.out.println("Sales Tax      : PHP " + String.format("%.2f", salesTax));
+        System.out.println("Final Total    : PHP " + String.format("%.2f", finalTotal));
+
+        // Close the scanner
+        scanner.close();
+    }
+}
